@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { ArrowRight, Calendar, MapPin, Users, Navigation, Copy, Rocket, Gift, QrCode } from 'lucide-react'
 import CountdownTimer from '../components/CountdownTimer'
 import EventCard from '../components/EventCard'
@@ -9,6 +10,21 @@ import { symposiumInfo, events, registrationLogic } from '../data/symposium'
 export default function Home() {
   const mandatoryEvent = events.find((e) => e.mandatory)!
   const otherEvents = events.filter((e) => !e.mandatory)
+
+  const [addressCopied, setAddressCopied] = useState(false)
+
+  const mapsUrl =
+    'https://www.google.com/maps/search/?api=1&query=Sir+Issac+Newton+College+of+Engineering+and+Technology,+Velankanni+Road,+Pappakovil,+Nagapattinam,+Tamil+Nadu+611102'
+
+  const fullAddress =
+    'Sir Issac Newton College of Engineering and Technology,\nVelankanni Road, Pappakovil,\nNagapattinam - 611 102, Tamil Nadu'
+
+  function handleCopyAddress() {
+    navigator.clipboard.writeText(fullAddress).then(() => {
+      setAddressCopied(true)
+      setTimeout(() => setAddressCopied(false), 2000)
+    })
+  }
 
   return (
     <div>
@@ -163,15 +179,32 @@ export default function Home() {
               <p><span className="font-semibold text-starlight">Parking:</span> Free on-campus parking available for two- and four-wheelers</p>
               <p><span className="font-semibold text-starlight">Travel:</span> Well connected by bus and rail from Nagapattinam and Nagore</p>
             </div>
-            <div className="flex flex-wrap gap-3 mt-7">
-              <a href="#" className="btn-gold !py-3 !px-6 !text-xs">
+
+            <div className="flex flex-wrap items-center gap-3 mt-7 relative">
+              <a
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold !py-3 !px-6 !text-xs"
+              >
                 <Navigation size={14} /> Get Directions
               </a>
-              <button className="btn-outline !py-3 !px-6 !text-xs">
+
+              <button
+                onClick={handleCopyAddress}
+                className="btn-outline !py-3 !px-6 !text-xs"
+              >
                 <Copy size={14} /> Copy Address
               </button>
+
+              {addressCopied && (
+                <span className="text-xs font-medium text-gold-500">
+                  Address copied!
+                </span>
+              )}
             </div>
           </div>
+
           <div className="rounded-3xl overflow-hidden border border-hairline shadow-card aspect-[4/3] card-surface">
             <iframe
               title="Campus location map"
