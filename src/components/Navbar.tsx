@@ -34,10 +34,15 @@ export default function Navbar() {
               : 'bg-hull/60 backdrop-blur-sm border-white/10 py-3'
           }`}
         >
-          <Link to="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+          <Link
+            to="/"
+            className="flex items-center gap-2.5"
+            onClick={() => setOpen(false)}
+          >
             <span className="flex items-center justify-center w-9 h-9 rounded-full bg-nebula-gradient text-void">
               <Rocket size={16} strokeWidth={2.25} />
             </span>
+
             <span className="font-display font-semibold text-lg tracking-tight text-starlight">
               {symposiumInfo.fullTitle}
             </span>
@@ -50,7 +55,9 @@ export default function Navbar() {
                 to={l.to}
                 className={({ isActive }) =>
                   `relative px-4 py-2 text-sm font-medium tracking-wide text-mist hover:text-starlight transition-colors ${
-                    isActive ? 'text-starlight after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-[2px] after:bg-nebula-gradient' : ''
+                    isActive
+                      ? 'text-starlight after:absolute after:left-4 after:right-4 after:-bottom-0.5 after:h-[2px] after:bg-nebula-gradient'
+                      : ''
                   }`
                 }
               >
@@ -59,10 +66,16 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Desktop Register */}
           <div className="hidden md:block">
-            <Link to="/register" className="btn-gold !py-2.5 !px-5 !text-xs">
+            <a
+              href="https://forms.gle/RpJVv6rKi8npie4t5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold !py-2.5 !px-5 !text-xs"
+            >
               REGISTER
-            </Link>
+            </a>
           </div>
 
           <button
@@ -84,20 +97,26 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `px-3 py-2.5 rounded-lg text-sm font-medium ${
-                    isActive ? 'bg-hull2 text-starlight' : 'text-mist'
+                    isActive
+                      ? 'bg-hull2 text-starlight'
+                      : 'text-mist'
                   }`
                 }
               >
                 {l.label.toUpperCase()}
               </NavLink>
             ))}
-            <Link
-              to="/register"
+
+            {/* Mobile Register */}
+            <a
+              href="https://forms.gle/RpJVv6rKi8npie4t5"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="btn-gold mt-1 !py-2.5"
             >
               REGISTER
-            </Link>
+            </a>
           </div>
         )}
       </div>
