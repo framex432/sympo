@@ -150,7 +150,7 @@ export default function Footer() {
 
             {/* YouTube */}
             <a
-              href="https://www.youtube.com/@SincNagai"
+              href="https://www.youtube.com/@sinc_nagai"
               target="_blank"
               rel="noopener noreferrer"
               className="w-9 h-9 rounded-full border border-hairline flex items-center justify-center hover:border-nebula-cyan/60 hover:text-nebula-cyan transition-colors"
