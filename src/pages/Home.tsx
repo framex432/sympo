@@ -38,18 +38,31 @@ export default function Home() {
 
         <div className="container-xn relative w-full text-starlight animate-fadeUp">
           <p className="eyebrow mb-4">{symposiumInfo.type}</p>
+
           <h1 className="font-display font-bold leading-[0.95] text-5xl sm:text-7xl lg:text-8xl">
             <span className="gradient-text">{symposiumInfo.name}</span>
             <span className="block text-starlight">{symposiumInfo.edition}</span>
           </h1>
+
           <p className="mt-5 text-mist text-sm sm:text-base tracking-[0.15em] uppercase">
             {symposiumInfo.tagline}
           </p>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-6 text-sm text-mist">
-            <span className="flex items-center gap-2"><Calendar size={15} className="text-nebula-gold" /> {symposiumInfo.date}</span>
-            <span className="flex items-center gap-2"><MapPin size={15} className="text-nebula-gold" /> {symposiumInfo.venue}, {symposiumInfo.collegeShort}</span>
-            <span className="flex items-center gap-2"><Users size={15} className="text-nebula-gold" /> Open to All Colleges</span>
+            <span className="flex items-center gap-2">
+              <Calendar size={15} className="text-nebula-gold" />
+              {symposiumInfo.date}
+            </span>
+
+            <span className="flex items-center gap-2">
+              <MapPin size={15} className="text-nebula-gold" />
+              {symposiumInfo.venue}, {symposiumInfo.collegeShort}
+            </span>
+
+            <span className="flex items-center gap-2">
+              <Users size={15} className="text-nebula-gold" />
+              Open to All Colleges
+            </span>
           </div>
 
           <div className="mt-8">
@@ -57,9 +70,16 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap gap-3 mt-8">
-            <Link to="/register" className="btn-gold">
+            {/* REGISTER NOW → GOOGLE FORM */}
+            <a
+              href="https://forms.gle/RpJVv6rKi8npie4t5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold"
+            >
               Register Now <ArrowRight size={16} />
-            </Link>
+            </a>
+
             <Link to="/events" className="btn-outline">
               Explore Events
             </Link>
@@ -71,18 +91,27 @@ export default function Home() {
       <section className="hairline">
         <div className="container-xn py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <p className="font-display text-xl text-starlight">{symposiumInfo.collegeName}</p>
-            <p className="text-sm text-mist mt-1">{symposiumInfo.collegeMeta} · {symposiumInfo.departments}</p>
+            <p className="font-display text-xl text-starlight">
+              {symposiumInfo.collegeName}
+            </p>
+
+            <p className="text-sm text-mist mt-1">
+              {symposiumInfo.collegeMeta} · {symposiumInfo.departments}
+            </p>
           </div>
-          <p className="font-mono text-xs text-nebula-gold tracking-widest">REG. CLOSES {symposiumInfo.registrationDeadline.toUpperCase()}</p>
+
+          <p className="font-mono text-xs text-nebula-gold tracking-widest">
+            REG. CLOSES {symposiumInfo.registrationDeadline.toUpperCase()}
+          </p>
         </div>
       </section>
 
-      {/* HOW REGISTRATION WORKS — the core fee logic, explained simply */}
+      {/* HOW REGISTRATION WORKS */}
       <section className="py-20">
         <div className="container-xn">
           <div className="text-center mb-12">
             <span className="eyebrow">The Logic, In Plain Words</span>
+
             <h2 className="font-display font-semibold text-3xl sm:text-4xl text-starlight mt-2">
               One Fee. One Flagship Event. Two Free Picks.
             </h2>
@@ -93,9 +122,19 @@ export default function Home() {
               <span className="badge bg-nebula-gradient text-void mb-4">
                 <Rocket size={12} /> Mandatory
               </span>
-              <h3 className="font-display font-semibold text-2xl text-starlight mb-2">{mandatoryEvent.eventName}  ·  {symposiumInfo.fee}</h3>
-              <p className="text-mist text-sm leading-relaxed">{registrationLogic.summary}</p>
-              <Link to={`/events/${mandatoryEvent.eventId}`} className="inline-flex items-center gap-1.5 text-sm text-nebula-cyan mt-4 hover:gap-2.5 transition-all">
+
+              <h3 className="font-display font-semibold text-2xl text-starlight mb-2">
+                {mandatoryEvent.eventName} · {symposiumInfo.fee}
+              </h3>
+
+              <p className="text-mist text-sm leading-relaxed">
+                {registrationLogic.summary}
+              </p>
+
+              <Link
+                to={`/events/${mandatoryEvent.eventId}`}
+                className="inline-flex items-center gap-1.5 text-sm text-nebula-cyan mt-4 hover:gap-2.5 transition-all"
+              >
                 Know the Event <ArrowRight size={14} />
               </Link>
             </div>
@@ -104,11 +143,21 @@ export default function Home() {
               <span className="badge bg-hull2 text-nebula-violet border border-nebula-purple/40 mb-4">
                 <Gift size={12} /> Included Free
               </span>
-              <h3 className="font-display font-semibold text-2xl text-starlight mb-2">Pick Any {registrationLogic.freePicks} More Events</h3>
-              <p className="text-mist text-sm leading-relaxed">{registrationLogic.bonus}</p>
+
+              <h3 className="font-display font-semibold text-2xl text-starlight mb-2">
+                Pick Any {registrationLogic.freePicks} More Events
+              </h3>
+
+              <p className="text-mist text-sm leading-relaxed">
+                {registrationLogic.bonus}
+              </p>
+
               <div className="flex flex-wrap gap-2 mt-4">
                 {otherEvents.map((e) => (
-                  <span key={e.eventId} className="text-xs font-mono text-mist border border-hairline rounded-full px-3 py-1">
+                  <span
+                    key={e.eventId}
+                    className="text-xs font-mono text-mist border border-hairline rounded-full px-3 py-1"
+                  >
                     {e.eventName}
                   </span>
                 ))}
@@ -117,7 +166,10 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-8">
-            <Link to="/faq" className="text-sm text-nebula-gold hover:underline underline-offset-4">
+            <Link
+              to="/faq"
+              className="text-sm text-nebula-gold hover:underline underline-offset-4"
+            >
               Read the full FAQ on how registration works →
             </Link>
           </div>
@@ -130,14 +182,20 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
             <div>
               <span className="eyebrow">Know The Events</span>
+
               <h2 className="font-display font-semibold text-3xl sm:text-4xl text-starlight mt-2">
                 All 6 Events
               </h2>
             </div>
-            <Link to="/events" className="text-sm font-medium text-nebula-gold flex items-center gap-1.5 hover:gap-2.5 transition-all">
+
+            <Link
+              to="/events"
+              className="text-sm font-medium text-nebula-gold flex items-center gap-1.5 hover:gap-2.5 transition-all"
+            >
               View all events <ArrowRight size={15} />
             </Link>
           </div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.map((e) => (
               <EventCard key={e.eventId} event={e} />
@@ -151,16 +209,30 @@ export default function Home() {
         <div className="container-xn">
           <div className="card-surface p-10 sm:p-14 text-center relative overflow-hidden">
             <OrbitField />
-            <QrCode className="mx-auto text-nebula-cyan mb-4 relative" size={30} />
+
+            <QrCode
+              className="mx-auto text-nebula-cyan mb-4 relative"
+              size={30}
+            />
+
             <h2 className="font-display font-semibold text-2xl sm:text-3xl text-starlight relative">
               Ready to Register?
             </h2>
+
             <p className="text-mist text-sm mt-3 max-w-md mx-auto relative">
-              No forms on this site — just two QR codes. Scan, pay, and submit your details directly with the college.
+              Click the button below to open the registration form and submit
+              your details directly with the college.
             </p>
-            <Link to="/register" className="btn-gold mt-6 relative">
+
+            {/* GO TO REGISTER PAGE → GOOGLE FORM */}
+            <a
+              href="https://forms.gle/RpJVv6rKi8npie4t5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold mt-6 relative"
+            >
               Go to Register Page <ArrowRight size={16} />
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -170,14 +242,40 @@ export default function Home() {
         <div className="container-xn grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <span className="eyebrow">Getting There</span>
+
             <h2 className="font-display font-semibold text-3xl sm:text-4xl text-starlight mt-2 mb-6">
               Venue &amp; Directions
             </h2>
+
             <div className="space-y-4 text-sm text-mist leading-relaxed">
-              <p><span className="font-semibold text-starlight">{symposiumInfo.collegeName}</span><br />{symposiumInfo.address}</p>
-              <p><span className="font-semibold text-starlight">Nearby landmark:</span> Nagapattinam Bus Stand, approx. 3 km</p>
-              <p><span className="font-semibold text-starlight">Parking:</span> Free on-campus parking available for two- and four-wheelers</p>
-              <p><span className="font-semibold text-starlight">Travel:</span> Well connected by bus and rail from Nagapattinam and Nagore</p>
+              <p>
+                <span className="font-semibold text-starlight">
+                  {symposiumInfo.collegeName}
+                </span>
+                <br />
+                {symposiumInfo.address}
+              </p>
+
+              <p>
+                <span className="font-semibold text-starlight">
+                  Nearby landmark:
+                </span>{' '}
+                Nagapattinam Bus Stand, approx. 3 km
+              </p>
+
+              <p>
+                <span className="font-semibold text-starlight">
+                  Parking:
+                </span>{' '}
+                Free on-campus parking available for two- and four-wheelers
+              </p>
+
+              <p>
+                <span className="font-semibold text-starlight">
+                  Travel:
+                </span>{' '}
+                Well connected by bus and rail from Nagapattinam and Nagore
+              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-3 mt-7 relative">
