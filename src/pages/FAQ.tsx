@@ -41,20 +41,39 @@ export default function FAQ() {
           <div className="card-surface p-6 sm:p-8">
             <div className="flex items-center gap-2.5 mb-6">
               <HelpCircle size={18} className="text-nebula-gold" />
-              <h2 className="font-display font-semibold text-lg text-starlight">How Registration Works</h2>
+              <h2 className="font-display font-semibold text-lg text-starlight">
+                How Registration Works
+              </h2>
             </div>
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {registrationLogic.steps.map((s, i) => (
                 <div key={s.title} className="relative">
-                  <span className="font-mono text-xs text-nebula-cyan">STEP {i + 1}</span>
-                  <h3 className="font-display font-medium text-starlight mt-1.5 mb-1.5">{s.title}</h3>
-                  <p className="text-xs text-mist leading-relaxed">{s.detail}</p>
+                  <span className="font-mono text-xs text-nebula-cyan">
+                    STEP {i + 1}
+                  </span>
+
+                  <h3 className="font-display font-medium text-starlight mt-1.5 mb-1.5">
+                    {s.title}
+                  </h3>
+
+                  <p className="text-xs text-mist leading-relaxed">
+                    {s.detail}
+                  </p>
                 </div>
               ))}
             </div>
-            <Link to="/register" className="inline-flex items-center gap-1.5 text-sm text-nebula-gold mt-7 hover:gap-2.5 transition-all">
-              Go to the Register page <ArrowRight size={14} />
-            </Link>
+
+            {/* REGISTER - Google Form */}
+            <a
+              href="https://forms.gle/RpJVv6rKi8npie4t5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-nebula-gold mt-7 hover:gap-2.5 transition-all"
+            >
+              Go to the Register page
+              <ArrowRight size={14} />
+            </a>
           </div>
         </div>
       </section>
@@ -68,18 +87,26 @@ export default function FAQ() {
                 question={f.question}
                 answer={f.answer}
                 open={openIndex === i}
-                onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+                onToggle={() =>
+                  setOpenIndex(openIndex === i ? null : i)
+                }
               />
             ))}
           </div>
 
           <div className="text-center mt-14 text-sm text-mist">
             Still have a question? Reach the team directly at{' '}
-            <a href={`tel:${symposiumInfo.phone.replace(/\s/g, '')}`} className="text-nebula-cyan hover:underline">
+            <a
+              href={`tel:${symposiumInfo.phone.replace(/\s/g, '')}`}
+              className="text-nebula-cyan hover:underline"
+            >
               {symposiumInfo.phone}
             </a>{' '}
             or see the{' '}
-            <Link to="/team" className="text-nebula-cyan hover:underline">
+            <Link
+              to="/team"
+              className="text-nebula-cyan hover:underline"
+            >
               Team page
             </Link>{' '}
             for individual coordinators.

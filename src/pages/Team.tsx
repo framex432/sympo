@@ -15,7 +15,7 @@ export default function Team() {
         <div className="container-xn space-y-16">
           <div>
             <h2 className="font-display font-semibold text-2xl text-starlight mb-6 text-center">
-              Faculty Coordinators
+              Convenor & Co-Convenor
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {facultyLeads.map((p) => (
