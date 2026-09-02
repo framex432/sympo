@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void text-starlight font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  @apply bg-nebula-pink/30 text-starlight;
+}
+
+*:focus-visible {
+  outline: 2px solid #ffa53d;
+  outline-offset: 2px;
+}
+
+.container-xn {
+  @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+}
+
+.eyebrow {
+  @apply font-mono text-[11px] tracking-[0.25em] uppercase text-nebula-gold;
+}
+
+.hairline {
+  @apply border-t border-hairline;
+}
+
+.nebula-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ff3f9e 25%, #ffa53d 50%, #8b5cf6 75%, transparent);
+  opacity: 0.6;
+}
+
+.gradient-text {
+  @apply bg-nebula-gradient bg-clip-text text-transparent;
+}
+
+/* Global starfield — fixed behind every page, stars drift slowly */
+.starfield-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, #141a45 0%, #05060f 55%), #05060f;
+}
+
+.starfield-layer canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Orbit constellation linework, echoes the poster's satellite/orbit motifs */
+.orbit-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.btn-gold {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-nebula-gradient text-void font-body font-semibold px-7 py-3.5 text-sm tracking-wide shadow-glowPink transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-hairline bg-white/5 text-starlight font-body font-medium px-7 py-3.5 text-sm tracking-wide backdrop-blur-sm transition-all duration-300 hover:border-nebula-cyan/60 hover:bg-white/10 active:translate-y-0;
+}
+
+.card-surface {
+  @apply bg-hull border border-hairline rounded-2xl shadow-card;
+}
+
+.card-surface-2 {
+  @apply bg-hull2 border border-hairline rounded-2xl shadow-card;
+}
+
+.input {
+  @apply w-full rounded-xl border border-hairline bg-hull2 px-4 py-3 text-sm text-starlight placeholder:text-mist/40 focus:border-nebula-cyan/60 transition-colors;
+}
+
+.badge {
+  @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-mono tracking-widest uppercase;
+}
