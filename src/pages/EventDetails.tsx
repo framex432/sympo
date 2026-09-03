@@ -525,22 +525,18 @@ export default function EventDetails() {
                     </h2>
 
                     <p className="text-mist leading-relaxed text-sm">
-                      Entries are evaluated by the event&rsquo;s faculty panel.
-                      Exact scoring weightage is announced at the venue before
-                      the round begins — check with{' '}
-                      {hasNamedCoordinator ? (
-                        <span className="text-starlight font-medium">
-                          {event.coordinator}
-                        </span>
-                      ) : (
-                        <Link
-                          to="/team"
-                          className="text-nebula-cyan font-medium hover:underline"
-                        >
-                          the event coordinators
-                        </Link>
-                      )}{' '}
-                      on the day for specifics.
+                      {event.eventId === 'ideathon' &&
+                        'Judging focuses on originality, problem relevance, feasibility, and the clarity of the proposed solution.'}
+                      {event.eventId === 'cryptrix' &&
+                        'Judging focuses on accuracy, logical reasoning, cryptographic understanding, and the ability to solve challenges within the allotted time.'}
+                      {event.eventId === 'debugging' &&
+                        'Judging focuses on the number of issues identified, correctness of the fixes, code quality, and completion time.'}
+                      {event.eventId === 'futureverse' &&
+                        'Judging focuses on creativity, innovation, presentation quality, and how effectively the concept is communicated.'}
+                      {event.eventId === 'frame-quest' &&
+                        'Judging focuses on creativity, composition, originality, theme interpretation, and the overall visual impact of the entry.'}
+                      {event.eventId === 'memorax' &&
+                        'Judging focuses on recall accuracy, concentration, response speed, and consistency throughout the memory challenge.'}
                     </p>
                   </div>
                 )}

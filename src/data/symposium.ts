@@ -237,7 +237,7 @@ export const events: EventItem[] = [
       'Exciting cash prizes for the best ideas',
 
     venue:
-      'On Campus (online attendance available)',
+      'On Campus',
 
     date:
       '12 September 2026',
@@ -302,7 +302,7 @@ export const events: EventItem[] = [
       'Participation certificate for every attendee',
 
     venue:
-      'CSE Seminar Hall',
+      'On Campus',
 
     date:
       '12 September 2026',
@@ -367,7 +367,7 @@ export const events: EventItem[] = [
       'Participation certificate for every attendee',
 
     venue:
-      'IT Computer Lab',
+      'On Campus',
 
     date:
       '12 September 2026',
@@ -430,7 +430,7 @@ export const events: EventItem[] = [
       'Participation certificate for every attendee',
 
     venue:
-      'Main Block Foyer',
+      'On Campus',
 
     date:
       '12 September 2026',
@@ -494,7 +494,7 @@ export const events: EventItem[] = [
       'Participation certificate for every attendee',
 
     venue:
-      'Campus-wide',
+      'On Campus',
 
     date:
       '12 September 2026',
@@ -558,7 +558,7 @@ export const events: EventItem[] = [
       'Participation certificate for every attendee',
 
     venue:
-      'Seminar Hall 2',
+      'On Campus',
 
     date:
       '12 September 2026',
